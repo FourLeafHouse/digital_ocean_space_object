@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_do_space_object,do.space.object,model_do_space_object,base.group_user,1,1,1,1
+access_do_folder,do.folder,model_do_folder,base.group_user,1,1,1,1
+access_do_upload,do.upload,model_do_upload,base.group_user,1,1,1,1

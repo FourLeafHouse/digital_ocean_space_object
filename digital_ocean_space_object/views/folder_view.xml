@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List create do.folder -->
+    <record model="ir.ui.view" id="do_folder_list">
+      <field name="name">do_folder_view</field>
+      <field name="model">do.folder</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="parent_folder"/>
+          <field name="space_id"/>
+          <field name="path"/>
+        </list>
+      </field>
+    </record>
+
+
+    <!-- From create do.folder -->
+    <record model="ir.ui.view" id="do_folder_form">
+      <field name="name">do_folder_form_view</field>
+      <field name="model">do.folder</field>
+      <field name="arch" type="xml">
+        <form>
+            <header>
+                <button string="Folder Create" name="action_create" invisible="state != 'draft'" type="object" class="oe_highlight"/>
+                <button string="Folder Delete" name="action_delete" invisible="state != 'created'"  type="object" class="oe_highlight btn-danger"/>
+                <button string="Reset to Draft" name="action_reset" invisible="state != 'deleted'" type="object" class="oe_highlight"/>
+                <field name="state" widget="statusbar"/>
+            </header>
+            <sheet>
+                <group>
+                <group>
+                    <field name="name" required="True" readonly="state != 'draft'"/>
+                    <field name="parent_folder" readonly="state != 'draft'"/>
+                    <field name="space_id" required="True" readonly="state != 'draft'"/>
+                    <field name="path" readonly="1" force_save="1"/>
+                </group>
+                </group>
+
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="do_folder_action_window">
+      <field name="name">Folder</field>
+      <field name="res_model">do.folder</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+
+    <menuitem name="Folder" id="do_folder_menu" parent="digital_ocean_space_object.do_space_object_menu" action="do_folder_action_window" />
+
+</odoo>

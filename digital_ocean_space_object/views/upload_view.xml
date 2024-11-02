@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List create do.upload -->
+    <record model="ir.ui.view" id="do_upload_list">
+      <field name="name">do_upload_view</field>
+      <field name="model">do.upload</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="upload_data"/>
+          <field name="folder_path"/>
+          <field name="url"/>
+        </list>
+      </field>
+    </record>
+
+
+    <!-- From create do.upload -->
+    <record model="ir.ui.view" id="do_upload_form">
+      <field name="name">do_upload_form_view</field>
+      <field name="model">do.upload</field>
+      <field name="arch" type="xml">
+        <form>
+            <header>
+                <button string="Folder Create" name="action_create" invisible="state != 'draft'" type="object" class="oe_highlight"/>
+                <button string="Folder Delete" name="action_delete" invisible="state != 'created'" type="object" class="oe_highlight btn-danger"/>
+                <button string="Download" name="action_download" invisible="state != 'created'" type="object" class="oe_highlight"/>
+                <button string="Reset to Draft" name="action_reset" type="object" invisible="state != 'deleted'" class="oe_highlight"/>
+                <field name="state" widget="statusbar"/>
+            </header>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="upload_data" filename="name" required="1" readonly="state != 'draft'"/>
+                        <field name="name" required="1" readonly="state != 'draft'"/>
+                        <field name="remove_binary" readonly="state != 'draft'"/>
+                        <field name="type" readonly="state != 'draft'"/>
+                    </group>
+                    <group>
+                        <field name="folder_path" required="1" readonly="state != 'draft'"/>
+                        <field name="full_path" readonly="1" force_save="1"/>
+                        <field name="url" widget="url" readonly="1" force_save="1"/>
+                    </group>
+                </group>
+
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="do_upload_action_window">
+      <field name="name">Upload</field>
+      <field name="res_model">do.upload</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+
+    <menuitem name="Upload" id="do_upload_menu" parent="digital_ocean_space_object.do_space_object_menu" action="do_upload_action_window"  />
+
+</odoo>

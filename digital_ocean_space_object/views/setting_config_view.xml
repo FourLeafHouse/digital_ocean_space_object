@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <app data-string="DO Space Object" string="DO Space Object" name="digital_ocean_space_object">
+                        <h2>Digital Ocean Space Object Settings</h2>
+                        <div class="row mt16 o_settings_container" name="default_platform_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box" title="The accounts setup will be used for pos session closed.">
+                                <span class="o_form_label">Spaces access keys</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." role="img"/>
+                                <div class="text-muted">
+                                        Digital Ocean used Space Object API Config.
+                                </div>
+                                <div class="o_setting_left_pane">
+
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                        <div class="row mt16">
+                                            <label for="access_key" string="Access Key" class="col-lg-3 o_light_label"/>
+                                            <field name="access_key"/>
+                                        </div>
+                                        <div class="row mt16">
+                                            <label for="secret_key" string="Secret Key" class="col-lg-3 o_light_label"/>
+                                            <field name="secret_key"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </app>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
