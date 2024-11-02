@@ -6,10 +6,10 @@
       <field name="name">do_space_object_view</field>
       <field name="model">do.space.object</field>
       <field name="arch" type="xml">
-        <list>
+        <tree>
           <field name="name"/>
           <field name="region"/>
-        </list>
+        </tree>
       </field>
     </record>
 
@@ -37,7 +37,7 @@
     <record model="ir.actions.act_window" id="do_space_object_action_window">
       <field name="name">Space Name</field>
       <field name="res_model">do.space.object</field>
-      <field name="view_mode">list,form</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
 
