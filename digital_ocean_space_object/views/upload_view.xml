@@ -23,22 +23,22 @@
       <field name="arch" type="xml">
         <form>
             <header>
-                <button string="Folder Create" name="action_create" invisible="state != 'draft'" type="object" class="oe_highlight"/>
-                <button string="Folder Delete" name="action_delete" invisible="state != 'created'" type="object" class="oe_highlight btn-danger"/>
-                <button string="Download" name="action_download" invisible="state != 'created'" type="object" class="oe_highlight"/>
-                <button string="Reset to Draft" name="action_reset" type="object" invisible="state != 'deleted'" class="oe_highlight"/>
+                <button string="Folder Create" name="action_create" states="draft" type="object" class="oe_highlight"/>
+                <button string="Folder Delete" name="action_delete" states="created" type="object" class="oe_highlight btn-danger"/>
+                <button string="Download" name="action_download" states="created" type="object" class="oe_highlight"/>
+                <button string="Reset to Draft" name="action_reset" type="object" states="deleted" class="oe_highlight"/>
                 <field name="state" widget="statusbar"/>
             </header>
             <sheet>
                 <group>
                     <group>
-                        <field name="upload_data" filename="name" required="1" readonly="state != 'draft'"/>
-                        <field name="name" required="1" readonly="state != 'draft'"/>
-                        <field name="remove_binary" readonly="state != 'draft'"/>
-                        <field name="type" readonly="state != 'draft'"/>
+                        <field name="upload_data" filename="name" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="name" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="remove_binary" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                     </group>
                     <group>
-                        <field name="folder_path" required="1" readonly="state != 'draft'"/>
+                        <field name="folder_path" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         <field name="full_path" readonly="1" force_save="1"/>
                         <field name="url" widget="url" readonly="1" force_save="1"/>
                     </group>

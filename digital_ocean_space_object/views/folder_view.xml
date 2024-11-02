@@ -23,17 +23,17 @@
       <field name="arch" type="xml">
         <form>
             <header>
-                <button string="Folder Create" name="action_create" invisible="state != 'draft'" type="object" class="oe_highlight"/>
-                <button string="Folder Delete" name="action_delete" invisible="state != 'created'"  type="object" class="oe_highlight btn-danger"/>
-                <button string="Reset to Draft" name="action_reset" invisible="state != 'deleted'" type="object" class="oe_highlight"/>
+                <button string="Folder Create" name="action_create" states="draft" type="object" class="oe_highlight"/>
+                <button string="Folder Delete" name="action_delete" states="created" type="object" class="oe_highlight btn-danger"/>
+                <button string="Reset to Draft" name="action_reset" states="deleted" type="object" class="oe_highlight"/>
                 <field name="state" widget="statusbar"/>
             </header>
             <sheet>
                 <group>
                 <group>
-                    <field name="name" required="True" readonly="state != 'draft'"/>
-                    <field name="parent_folder" readonly="state != 'draft'"/>
-                    <field name="space_id" required="True" readonly="state != 'draft'"/>
+                    <field name="name" required="True" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="parent_folder" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="space_id" required="True" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                     <field name="path" readonly="1" force_save="1"/>
                 </group>
                 </group>

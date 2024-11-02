@@ -1,7 +1,7 @@
 {
     "name": "Digital Ocean Space Object",
     "summary": "Digital Ocean Space Integration with Odoo Folder/File CRUD",
-    "version": "17.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Extra Tools",
     "author": "WaiYan-DEVJ@K3R, FourLeafHouse",
     "license": "LGPL-3",
